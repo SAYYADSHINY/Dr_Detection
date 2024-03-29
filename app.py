@@ -28,3 +28,6 @@ def login(request: Request):
 @app.get('/sign')
 def sign(request: Request):
     return templates.TemplateResponse("signup.html", {"request": request})
+
+
+
