@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pandas
+Jinja2==3.0.3
+fastapi-sqlalchemy
+requests
+psycopg2
