@@ -42,14 +42,14 @@
         
   <div class="container col-5 col-lg-4" style="opacity: 0.8;">    
       
-    <form action="/" method="post" enctype="multipart/form-data" id="uploadForm">
+    <form action="/upload_image" method="post" enctype="multipart/form-data" id="uploadForm">
       <div class="img-area" data-img="" >
           <i class='bx bxs-cloud-upload icon'></i>
           <h3>Upload Image</h3>
           <p>Image size must be less than <span>2MB</span></p>
       </div>
       <div style="display: flex; flex-direction: row; justify-content: space-between;">
-      <input class="select-image" type="file" name="file" accept="image/*" required id="imageFileInput">
+        <input class="select-image" type="file" name="image_file" accept="image/*" required id="imageFileInput">
       <button class="custom-button mb-3" style="background-color: #f37beb;" type="submit">Upload Image</button>
       </div>
   </form>
