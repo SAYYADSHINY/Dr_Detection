@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 import io
 import os
-
+from collections import Counter
 from google.cloud import bigquery, storage
 from google.oauth2 import service_account
 from tensorflow.keras.preprocessing import image
@@ -76,8 +76,8 @@ async def upload_image(request: Request, image_file: UploadFile = File(...)):
 
 
     bucket_name = "sandeep_personal"
-    models = ["ResNet2_Model.h5"]
-    # Create a client instance
+    models = ["ResNet2_Model.h5","VGG16_Model.h5"]
+     
     key_path = "ck-eams-9260619158c0.json"
     client = storage.Client.from_service_account_json(key_path)
 
@@ -85,6 +85,8 @@ async def upload_image(request: Request, image_file: UploadFile = File(...)):
     # Retrieve the bucket
     bucket = client.get_bucket(bucket_name)
 
+
+    all_predicted_class_labels = []
 
     for model_file in models:
         blob = bucket.blob(model_file)
@@ -109,11 +111,22 @@ async def upload_image(request: Request, image_file: UploadFile = File(...)):
 
         print("Predicted class:", predicted_class_label)
 
+        all_predicted_class_labels.append(predicted_class_label)
+ 
         os.remove(model_file)
+    
+    all_predicted_class_labels = np.array(all_predicted_class_labels)
 
-        context = {
+    print("All predicted class labels:", all_predicted_class_labels)
+    
+    label_counts = Counter(all_predicted_class_labels)
+    most_common_label = label_counts.most_common(1)[0][0]
+
+    print(most_common_label)
+
+    context = {
         "request": request,
-        "predicted_class_label":predicted_class_label
+        "predicted_class_label":most_common_label
     }
 
 
