@@ -131,10 +131,8 @@ async def upload_image(request: Request, image_file: UploadFile = File(...)):
     key_path = "ck-eams-9260619158c0.json"
     client = storage.Client.from_service_account_json(key_path)
 
-
     # Retrieve the bucket
     bucket = client.get_bucket(bucket_name)
-
 
     all_predicted_class_labels = []
 
