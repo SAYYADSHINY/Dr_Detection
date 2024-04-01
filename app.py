@@ -1,4 +1,4 @@
-# dynamic.py
+
 from fastapi import FastAPI, UploadFile, File, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
@@ -19,8 +19,20 @@ from google.cloud import bigquery, storage
 from google.oauth2 import service_account
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.resnet50 import preprocess_input
+import psycopg2
+from fastapi.responses import RedirectResponse
 
 
+
+
+
+conn = psycopg2.connect(
+    dbname="sampledb",
+    user="app",
+    password="pOud4unh16k5Xp9b1HE754U2",
+    host="absolutely-verified-stag.a1.pgedge.io",
+    port="5432"
+)
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -64,6 +76,44 @@ def sign(request: Request):
 
 
 
+
+
+@app.post("/sign")
+async def signup(
+    request: Request, username: str = Form(...), email: str = Form(...),password1: str = Form(...),password2:str = Form(...) 
+):
+   
+    cur = conn.cursor()
+    cur.execute("INSERT INTO drsignup (uname,email,password1,password2) VALUES (%s, %s,%s, %s)", (username,email,password1,password2))
+    conn.commit()
+    cur.close() 
+ 
+    return RedirectResponse("/login", status_code=303)
+
+
+@app.post("/login",response_class=HTMLResponse)
+async def do_login(
+    request: Request,
+    username: str = Form(...),
+    password: str = Form(...),
+):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM drsignup WHERE uname=%s and password1=%s", (username,password))
+    existing_user = cur.fetchone()
+    cur.close()
+    
+    print(username)
+    print(password)
+    if existing_user:
+        print(existing_user)
+        return templates.TemplateResponse("index.html",{"request": request, "username": username, "password": password,"existing_user": existing_user})
+    
+    else:
+        return HTMLResponse(status_code=401, content="Wrong credentials")
+
+
+
+
 @app.post("/upload_image")
 async def upload_image(request: Request, image_file: UploadFile = File(...)):
     
@@ -76,7 +126,7 @@ async def upload_image(request: Request, image_file: UploadFile = File(...)):
 
 
     bucket_name = "sandeep_personal"
-    models = ["ResNet2_Model.h5","VGG16_Model.h5"]
+    models = ["ResNet2_Model.h5","VGG16_Model.h5","VGG19_Model2.h5"]
      
     key_path = "ck-eams-9260619158c0.json"
     client = storage.Client.from_service_account_json(key_path)
@@ -124,9 +174,16 @@ async def upload_image(request: Request, image_file: UploadFile = File(...)):
 
     print(most_common_label)
 
+    most_common_index = None
+    for index, label in class_labels.items():
+        if label == most_common_label:
+            most_common_index = index
+            break
+
     context = {
         "request": request,
-        "predicted_class_label":most_common_label
+        "predicted_class_label":most_common_label,
+        "most_common_index":most_common_index
     }
 
 

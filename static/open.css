@@ -5,6 +5,7 @@
 {
     padding: 0;
 }
+
 #navitem1 {
     color: #323f4b;
     margin-right: 10px;
@@ -26,6 +27,10 @@
 #navitem4 {
     color: #323f4b;
     font-family: Roboto;
+}
+
+.nav-link {
+    transition: color 0.3s, transform 0.3s;
 }
 
 .food-munch-logo {
