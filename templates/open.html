@@ -26,14 +26,14 @@
     <div class="container">
         <a class="navbar-brand food-munch-logo" style="display: flex;flex-direction: row; align-items: center; justify-content: center;" href="#">
             <p><img src="./static/logo.jpg" width="46" height="33"></p>
-            <p style="font-size: 34px; font-family: 'MuseoModerno', sans-serif;margin-left: 1vw; "> DiabeticVision Check</p>
+            <p style="font-size: 34px; font-family: 'MuseoModerno', sans-serif;margin-left: 1vw; "> Diabetic Retinopathy Check</p>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div id="navtools" class="navbar-nav ml-auto">
-                <a class="nav-link" id="navitem2" href="#exp">About Us <i class="fa fa-search" style="font-size:20px"></i> &nbsp&nbsp </a>
+                <a class="nav-link" id="navitem2" href="#exp">About Models <i class="fa fa-search" style="font-size:20px"></i> &nbsp&nbsp </a>
                 <a class="nav-link" id="navitem3" href="/sign">Sign up <i class='fas fa-user-alt' style='font-size:20px'></i> &nbsp&nbsp</a>
                 <a class="nav-link" id="navitem4" href="/login">Login <i class="fa fa-sign-in" style="font-size:20px"></i></a>
             </div>
@@ -45,7 +45,7 @@
 </div>
 
 
-<h1 style="margin-left: 4vw;margin-top: 3vh;">About Us :</h1>
+<h1 style="margin-left: 4vw;margin-top: 3vh;">About Model :</h1>
 
 <div id="exp" class="healthy-food-section pt-5 pb-5">
     <div class="container">
@@ -69,43 +69,46 @@
 </div>
 
 
-<div class="healthy-food-section pt-5 pb-5">
-    <div class="container">
-        <div class="row">
-            
-            <div class="des1 col-12 col-md-6">
-                <h1 class="healthy-food-section-heading">
-                    Why is Early Detection Important?
-                </h1>
-                <p class="healthy-food-section-description" style="text-align: justify;">
-                    Early detection of diabetic retinopathy (DR) is crucial! DR often progresses silently, with no warning signs until vision is already at risk.
-                    However, catching DR early allows for treatment that can prevent vision loss entirely. Regular eye exams are your best defense against blindness from DR. Don't wait for symptoms - schedule your screening today!</p>
-               
-            </div>
-            
-            <div class="col-12 col-md-6">
-                <div class="text-center">
-                    <img src="./static/eye1.jpg" style="border-radius: 20px; border: transparent;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); width: 30vw; height: 38vh;"  class="healthy-food-section-img" />
-                </div>
-            </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="des1 col-12 col-md-8">
+            <h1 class="healthy-food-section-heading text-center">
+                Various Stages in Diabetic Retinopathy
+            </h1>
+            <p><b>1. No Diabetic Retinopathy:</b></p>
+            <p>* In this early stage, there are no visible signs of retinopathy in the eye. The retinal blood vessels appear normal, and there are no abnormalities detected during an eye examination.</p>
+
+            <p><b>2. Mild Diabetic Retinopathy :</b></p>
+            <p>* This stage is characterized by the development of microaneurysms, small bulges in the retinal blood vessels caused by weakened vessel walls. There may also be tiny areas of retinal swelling or leakage, known as retinal hemorrhages or exudates.</p>
+
+            <p><b>3. Moderate Diabetic Retinopathy :</b></p>
+            <p>* In this stage, the number of microaneurysms and other abnormalities increases. Cotton wool spots (fluffy white lesions) may appear, indicating areas of poor retinal circulation. Venous beading (irregular constrictions of the retinal veins) may also be present.</p>
+
+            <p><b>4. Severe Diabetic Retinopathy (NPDR):</b></p>
+            <p>* This stage is characterized by a significant number of retinal hemorrhages, microaneurysms, and other abnormalities. There may be areas of retinal ischemia (lack of blood supply) due to the closure of many retinal blood vessels. Vision may be affected, but there is no growth of new abnormal blood vessels yet.</p>
+
+            <p><b>5. Proliferative Diabetic Retinopathy (NPDR):</b></p>
+            <p>* This is the most advanced stage of diabetic retinopathy. In response to the lack of oxygen supply, new abnormal blood vessels (neovascularization) begin to grow from the retina or optic nerve. These fragile new vessels can bleed into the vitreous humor, causing vision loss or blindness. Scar tissue may also develop, leading to retinal detachment or the formation of glaucoma.</p>
         </div>
     </div>
 </div>
+
 
 <div class="healthy-food-section pt-5 pb-5">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="text-center">
-                    <img src="./static/eye2.jpg" style="border-radius: 20px; border: transparent;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); width: 30vw; height: 38vh;"  class="healthy-food-section-img" />
+                    <img src="./static/Resnet.jpeg" style="border-radius: 20px; border: transparent;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); width: 30vw; height: 38vh;"  class="healthy-food-section-img" />
                 </div>
             </div>
             <div class="des1 col-12 col-md-6">
                 <h1 class="healthy-food-section-heading">
-                    Our Screening Process Section:       </h1>
+                     ResNet50 Model     </h1>
                 <p class="healthy-food-section-description" style="text-align: justify;">
-                    Our painless screening process is quick and efficient. We leverage advanced deep learning technology, like ResNet neural networks, to analyze retinal images. These powerful algorithms can automatically detect subtle signs of diabetic retinopathy, allowing for early intervention and improved vision outcomes.
-                                </p>
+                    The architecture of ResNet50 is divided into four main parts: the convolutional layers, the identity block, the convolutional block, and the fully connected layers. The convolutional layers are responsible for extracting features from the input image, while the identity block and convolutional block are responsible for processing and transforming these features. Finally, the fully connected layers are used to make the final classification.
+
+The convolutional layers in ResNet50 consist of several convolutional layers followed by batch normalization and ReLU activation. </p>
                 
             </div>
             
@@ -119,19 +122,24 @@
             
             <div class="des1 col-12 col-md-6">
                 <h1 class="healthy-food-section-heading">
-                    Benefits of Screening Section:
+                    VGG 16 Model
                 </h1>
-                    <ul style="font-size: 18px; text-align: justify;">
+                <P>It is a typical deep Convolutional Neural Network (CNN) design with numerous layers, and the abbreviation VGG stands for Visual Geometry Group. The term “deep” describes the number of layers, with VGG-16 or VGG-19 having 16 or 19 convolutional layers, respectively.
+
+                    Innovative object identification models are built using the VGG architecture. The VGGNet, created as a deep neural network, outperforms benchmarks on a variety of tasks and datasets outside of ImageNet.The deep neural network’s 16 layers are indicated by the number 16 in their name, which is VGG (VGGNet). This indicates that the VGG16 network is quite large, with a total of over 138 million parameters.</P>
+
+
+                    <!-- <ul style="font-size: 18px; text-align: justify;">
                         <li>Painless & Quick: Our process is comfortable and takes minimal time.</li>
                         <li>Accurate Results: Deep learning technology ensures reliable detection of eye issues.</li>
                         <li>Convenient Scheduling: Schedule your screening easily online or by phone.</li>
-                      </ul>   
+                      </ul>    -->
                
             </div>
             
             <div class="col-12 col-md-6">
                 <div class="text-center">
-                    <img src="./static/eye3.jpeg" style="border-radius: 20px; border: transparent;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); width: 30vw; height: 38vh;"  class="healthy-food-section-img" />
+                    <img src="./static/VVGG.png" style="border-radius: 30px; border: transparent;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); width: 38vw; height: 38vh;"  class="healthy-food-section-img" />
                 </div>
             </div>
         </div>
@@ -140,16 +148,36 @@
 
 
 
+<div class="healthy-food-section pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="text-center">
+                    <img src="./static/VGG19.png" style="border-radius: 20px; border: transparent;box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); width: 34vw; height: 38vh;"  class="healthy-food-section-img" />
+                </div>
+            </div>
+            <div class="des1 col-12 col-md-6">
+                <h1 class="healthy-food-section-heading">
+                     VGG19 Model     </h1>
+                <p class="healthy-food-section-description" style="text-align: justify;">
+                    VGG19 is a convolutional neural network architecture renowned for its depth and uniform structure. With 19 layers, it consists primarily of 3x3 convolutional layers, interspersed with max-pooling layers for downsampling. This architecture's simplicity facilitates ease of understanding and implementation. Moreover, pre-trained VGG19 models on datasets like ImageNet are widely available, making it a popular choice for various computer vision tasks, including image classification and feature extraction. However, its heavy computational requirements pose challenges for deployment on resource-constrained devices. </p>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
 
 
 <div id="fu" class="follow-us pt-5 pb-5">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <h1 class="follow-us-section"><u>Follow Us</u></h1>
-            </div>
+            </div> -->
             <div class="col-12">
-                <div class="d-flex flex-row justify-content-center">
+                <!-- <div class="d-flex flex-row justify-content-center">
                     <div class="follow-us-icon-container">
                         <i class="fab fa-twitter icont"></i>
                     </div>
@@ -159,7 +187,7 @@
                     <div class="follow-us-icon-container">
                         <i class="fab fa-facebook iconf"></i>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -169,7 +197,7 @@
     <div class="container">
         <div class="row foot">
             
-            <div class="des1 col-12 col-md-3">
+            <!-- <div class="des1 col-12 col-md-3">
                 <h2 style="color:white">Solutions</h2>
                 <h5>Overview</h5>
                 <h5>Smart Phone App</h5>
@@ -189,7 +217,7 @@
                 <h5>Advantages</h5>
                 <h5>News</h5>
                 <h5>Contact</h5>
-                <h5>Privacy Policy</h5>
+                <h5>Privacy Policy</h5> --> 
                 
             </div>
         </div>
